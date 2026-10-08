@@ -90,3 +90,52 @@ figcaption{position:absolute;left:0;top:27.55vw;font-size:1.6vw;line-height:1;le
 .slots{inset:0}
 .slot{width:15vw;height:9vw;transform:translate(-50%,-50%)}
 .slot img{inset:0;margin:auto;filter:grayscale(1);will-change:filter,opacity,transform}
+
+/* ---------- mobile / small screens: reflow into a stacked layout ---------- */
+@media (max-width:820px){
+  .slide{aspect-ratio:auto;height:auto;min-height:0;padding:22vw 6vw;display:flex;flex-direction:column;justify-content:center;gap:7vw}
+  .slide *{position:static;left:auto;top:auto;right:auto;white-space:normal}
+  /* let sentences reflow naturally instead of keeping the desktop line breaks */
+  .ln,.ln>span{display:inline}
+  .ln::after{content:" "}
+  .s1 h1 .ln:first-child{display:block;margin-bottom:3vw}
+  .reach .ln,.office .ln{display:block}
+  .reach .ln>span,.office .ln>span{display:block}
+  .ln::after{white-space:pre}
+  .reach .ln::after,.office .ln::after,.s1 h1 .ln:first-child::after{content:none}
+
+  .s1{min-height:100svh;justify-content:flex-start;gap:14vw;padding-top:12vw}
+  .s1 .logo{width:24vw}
+  .s1 h1{font-size:6.6vw;line-height:1.45;letter-spacing:.01em}
+
+  .head,.talk{font-size:9vw;letter-spacing:.01em}
+  .body{font-size:5.4vw;line-height:1.7;letter-spacing:.03em}
+  .svc li{padding:1.6vw 0}
+  .svc li span{font-size:1em}
+  .svc li span::after{height:1.5px}
+  .peek{position:relative;width:100%;height:56vw;margin-top:4vw;display:none}
+  .peek.show{display:block}
+  .peek img{position:absolute}
+
+  .slide.light:has(.work){padding:12vw 6vw;gap:12vw}
+  .work,.work.l,.work.r{position:relative;width:100%;height:auto;left:auto;top:auto}
+  .thumb{position:relative}
+  figcaption{position:static;display:block;margin-top:3.5vw;font-size:4.6vw;letter-spacing:.04em}
+
+  .clients{padding:14vw 5vw 16vw;gap:10vw;display:block}
+  .clients .kc,.clients .kc-india{display:inline-flex}
+  .kc{font-size:5.8vw}
+  .kc-india{float:right;font-size:5.8vw;align-items:flex-end;gap:1vw}
+  .kc-india svg{width:5vw;height:4.5vw}
+  .slots{position:relative;clear:both;display:grid;grid-template-columns:repeat(3,1fr);gap:4vw 2vw;margin-top:12vw;inset:auto}
+  .slot{position:relative!important;left:auto!important;top:auto!important;transform:none;width:auto;height:24vw}
+
+  .contact{min-height:100svh;gap:9vw}
+  .talk{font-size:11vw}
+  .reach,.office{font-size:5.6vw;line-height:1.55;letter-spacing:.03em}
+  .reach{letter-spacing:.05em;word-break:break-word}
+  .office b{display:block;margin-bottom:1vw}
+  .social{display:flex;flex-wrap:wrap;gap:3vw 7vw;font-size:4.6vw;letter-spacing:.05em}
+  .social li{position:static}
+  .copy{font-size:3.2vw;letter-spacing:.05em}
+}

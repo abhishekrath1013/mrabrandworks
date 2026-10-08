@@ -53,26 +53,28 @@ const svc = document.querySelector('.svc');
 const peek = document.querySelector('.peek');
 const peekImg = peek.querySelector('img');
 const vw = n => n + 'vw';
+const small = matchMedia('(max-width:820px)');
 svc.querySelectorAll('li span').forEach(span => {
   const i = +span.dataset.i;
   span.addEventListener('mouseenter', () => {
     span.classList.add('on');
     svc.classList.add('hovering');
     const list = projects[i];
-    if (!list) { gsap.to(peek, { opacity: 0, duration: .2 }); return; }
+    if (!list) { peek.classList.remove('show'); gsap.to(peek, { opacity: 0, duration: .2 }); return; }
     peekImg.src = list[Math.floor(Math.random() * list.length)];
     const rowY = 14.7 + i * 4.425;
     const top = Math.min(42, Math.max(9, rowY - 4 + (Math.random() * 4 - 2)));
     const left = top > 23 && Math.random() < .5 ? 7.5 + Math.random() * 9 : 78 + Math.random() * 1.5;
     gsap.killTweensOf(peek);
-    gsap.set(peek, { left: vw(left), top: vw(top), opacity: 1, clipPath: 'inset(0 0 100% 0)' });
+    peek.classList.toggle('show', small.matches);
+    gsap.set(peek, small.matches ? { opacity: 1, clipPath: 'inset(0 0 100% 0)' } : { left: vw(left), top: vw(top), opacity: 1, clipPath: 'inset(0 0 100% 0)' });
     gsap.to(peek, { clipPath: 'inset(0 0 0% 0)', duration: .7, ease: 'power4.out' });
     gsap.fromTo(peekImg, { scale: 1.3 }, { scale: 1, duration: 1, ease: 'power3.out' });
   });
   span.addEventListener('mouseleave', () => {
     span.classList.remove('on');
     svc.classList.remove('hovering');
-    gsap.to(peek, { opacity: 0, duration: .25 });
+    if (!small.matches) gsap.to(peek, { opacity: 0, duration: .25 });
   });
 });
 
@@ -82,10 +84,13 @@ const CLIENTS = [{"src": "assets/clients/fortune-housing.png", "ar": 1.442}, {"s
 (() => {
   const wrap = document.getElementById('slots');
   const section = document.getElementById('clients');
-  const COLS = 5, ROWS = 3, AREA = 52, MAXW = 13, MAXH = 8.4;
+  const COLS = 5, ROWS = 3;
+  const mq = matchMedia('(max-width:820px)');
+  // sizes are in vw; phones show 3 columns so the logos get scaled up
+  const dims = () => mq.matches ? { AREA: 190, MAXW: 25, MAXH: 18 } : { AREA: 52, MAXW: 13, MAXH: 8.4 };
   const xs = [12.3, 31.5, 50.7, 69.9, 89.1], ys = [18.1, 30.3, 43.4];
   CLIENTS.forEach(c => { new Image().src = c.src; });
-  const sizeOf = c => { const h = Math.min(MAXH, Math.sqrt(AREA / c.ar)); return { w: Math.min(MAXW, h * c.ar), h }; };
+  const sizeOf = c => { const { AREA, MAXW, MAXH } = dims(); const h = Math.min(MAXH, Math.sqrt(AREA / c.ar)); return { w: Math.min(MAXW, h * c.ar), h }; };
   const makeImg = c => {
     const im = document.createElement('img');
     const s = sizeOf(c);
