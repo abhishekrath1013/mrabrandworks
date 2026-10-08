@@ -1,0 +1,92 @@
+@font-face{font-family:"Helvetica Neue";font-weight:200;src:url("assets/fonts/HelveticaNeueThin.otf") format("opentype");font-display:swap}
+@font-face{font-family:"Helvetica Neue";font-weight:300;src:url("assets/fonts/HelveticaNeueLight.otf") format("opentype");font-display:swap}
+
+/* Layout mirrors the 1920x1080 artboards: every slide is 16:9 and all
+   measurements are in vw, so line breaks and proportions never change. */
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:#000}
+body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:300;background:#000;-webkit-font-smoothing:antialiased}
+body.has-cursor,body.has-cursor *{cursor:none!important}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+address{font-style:normal}
+
+.slide{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden}
+.dark{background:#000;color:#fff}
+.light{background:#fff;color:#231f20}
+.slide *{position:absolute;white-space:nowrap}
+
+/* slide 1 */
+.s1 .logo{left:5.75vw;top:4.2vw;width:8.9vw}
+.s1 h1{left:6vw;top:20vw;font-size:3.65vw;line-height:5.6vw;letter-spacing:.03em;font-weight:200}
+
+/* slides 2–4 */
+.head{left:7vw;top:16vw;font-size:3.65vw;line-height:1;letter-spacing:.025em;font-weight:200}
+.body{left:36.95vw;top:14.7vw;font-size:2.5vw;line-height:4.425vw;letter-spacing:.04em;font-weight:200}
+
+/* slides 5–7 */
+.work{top:15.1vw;width:41.7vw;height:auto}
+.work.l{left:6.2vw}
+.work.r{left:52.1vw}
+.thumb{position:relative;display:block;width:100%;aspect-ratio:16/10;overflow:hidden;border:0;background:#eee}
+.thumb img{position:static;width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.thumb img.top{object-position:50% 43%}
+.thumb:hover img{transform:scale(1.04)}
+figcaption{position:absolute;left:0;top:27.55vw;font-size:1.6vw;line-height:1;letter-spacing:.057em;font-weight:200}
+.work{height:30vw}
+
+/* slide 8 */
+.talk{left:11.25vw;top:13.6vw;font-size:3.65vw;line-height:1;letter-spacing:.03em;font-weight:200}
+.reach{left:57.4vw;top:12.8vw;font-size:2.3vw;line-height:3.1vw;letter-spacing:.08em;font-weight:200}
+.office{font-size:2.3vw;line-height:3.1vw;letter-spacing:.045em;font-weight:200;top:24.05vw}
+.office b{position:static;font-weight:300}
+.chennai{left:11.25vw}
+.mumbai{left:57.4vw}
+.social{left:11.25vw;top:42.65vw;font-size:1.55vw;line-height:1;letter-spacing:.07em;font-weight:200}
+.social li{position:absolute;top:0}
+.social li:nth-child(1){left:0}
+.social li:nth-child(2){left:9.2vw}
+.social li:nth-child(3){left:18.4vw}
+.social li:nth-child(4){left:27.6vw}
+.copy{left:11.25vw;top:51.7vw;font-size:.9vw;line-height:1;letter-spacing:.08em;font-weight:200}
+.contact a{position:static;transition:opacity .2s}
+.contact a:hover{opacity:.5}
+
+/* custom cursor: static knight, rotating ring */
+.cursor{position:fixed;left:0;top:0;width:84px;height:84px;z-index:100;pointer-events:none;opacity:0;transition:opacity .25s,width .3s,height .3s;mix-blend-mode:difference;will-change:transform}
+.cursor.on{opacity:1}
+.cursor img{position:absolute;inset:0;width:100%;height:100%;display:block}
+.cursor .ring{animation:spin 14s linear infinite}
+.cursor.big{width:120px;height:120px}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (hover:none){.cursor{display:none}}
+
+/* lightbox */
+.lightbox{position:fixed;inset:0;z-index:50;background:#000e;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:5vw;cursor:zoom-out;color:#fff}
+.lightbox[hidden]{display:none}
+.lightbox img{max-width:100%;max-height:80vh;object-fit:contain}
+.lightbox p{font-size:18px;letter-spacing:.04em;font-weight:200}
+.lb-close{position:absolute;top:20px;right:28px;background:none;border:0;color:#fff;font-size:44px;font-weight:200;cursor:pointer}
+
+@media (prefers-reduced-motion:reduce){.cursor .ring{animation:none}}
+
+/* line mask for text reveals */
+.ln{position:static!important;display:block;overflow:hidden}
+.ln>span{position:static!important;display:block}
+
+/* services: strike-out + project peek */
+.svc li{position:static;display:block}
+.svc li span{position:relative;display:inline-block;transition:opacity .35s}
+.svc li span::after{content:"";position:absolute;left:0;top:54%;height:max(1.5px,.09vw);width:100%;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.6,0,.2,1)}
+.svc li span.on::after{transform:scaleX(1)}
+.svc.hovering li span:not(.on){opacity:.35}
+.peek{width:17vw;height:10.6vw;overflow:hidden;pointer-events:none;opacity:0;background:#111;z-index:2}
+.peek img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* key clients */
+.kc{left:5.6vw;top:5.5vw;font-size:2.5vw;line-height:1;letter-spacing:-.01em;font-weight:200}
+.kc-india{right:6.25vw;top:5.5vw;font-size:2.5vw;line-height:1;font-weight:200;display:flex;align-items:flex-end;gap:.15vw;letter-spacing:-.01em}
+.kc-india svg{position:static;width:2vw;height:1.8vw;margin-bottom:.1vw}
+.slots{inset:0}
+.slot{width:15vw;height:9vw;transform:translate(-50%,-50%)}
+.slot img{inset:0;margin:auto;filter:grayscale(1);will-change:filter,opacity,transform}
