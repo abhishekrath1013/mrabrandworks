@@ -18,11 +18,11 @@ address{font-style:normal}
 
 /* slide 1 */
 .s1 .logo{left:5.75vw;top:4.2vw;width:8.9vw}
-.s1 h1{left:6vw;top:20vw;font-size:3.65vw;line-height:5.6vw;letter-spacing:.03em;font-weight:200}
+.s1 h1{left:6vw;top:20vw;font-size:3vw;line-height:5.6vw;letter-spacing:.03em;font-weight:200}
 
 /* slides 2–4 */
-.head{left:7vw;top:16vw;font-size:3.65vw;line-height:1;letter-spacing:.025em;font-weight:200}
-.body{left:36.95vw;top:14.7vw;font-size:2.5vw;line-height:4.425vw;letter-spacing:.04em;font-weight:200}
+.head{left:7vw;top:16.3vw;font-size:3vw;line-height:1;letter-spacing:.025em;font-weight:200}
+.body{left:36.95vw;top:14.7vw;font-size:2.05vw;line-height:4.425vw;letter-spacing:.04em;font-weight:200}
 
 /* slides 5–7 */
 .work{top:15.1vw;width:41.7vw;height:auto}
@@ -32,23 +32,23 @@ address{font-style:normal}
 .thumb img{position:static;width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
 .thumb img.top{object-position:50% 43%}
 .thumb:hover img{transform:scale(1.04)}
-figcaption{position:absolute;left:0;top:27.55vw;font-size:1.6vw;line-height:1;letter-spacing:.057em;font-weight:200}
+figcaption{position:absolute;left:0;top:27.7vw;font-size:1.3vw;line-height:1;letter-spacing:.057em;font-weight:200}
 .work{height:30vw}
 
 /* slide 8 */
-.talk{left:11.25vw;top:13.6vw;font-size:3.65vw;line-height:1;letter-spacing:.03em;font-weight:200}
-.reach{left:57.4vw;top:12.8vw;font-size:2.3vw;line-height:3.1vw;letter-spacing:.08em;font-weight:200}
-.office{font-size:2.3vw;line-height:3.1vw;letter-spacing:.045em;font-weight:200;top:24.05vw}
+.talk{left:11.25vw;top:13.9vw;font-size:3vw;line-height:1;letter-spacing:.03em;font-weight:200}
+.reach{left:57.4vw;top:12.8vw;font-size:1.9vw;line-height:3.1vw;letter-spacing:.08em;font-weight:200}
+.office{font-size:1.9vw;line-height:3.1vw;letter-spacing:.045em;font-weight:200;top:24.05vw}
 .office b{position:static;font-weight:300}
 .chennai{left:11.25vw}
 .mumbai{left:57.4vw}
-.social{left:11.25vw;top:42.65vw;font-size:1.55vw;line-height:1;letter-spacing:.07em;font-weight:200}
+.social{left:11.25vw;top:42.8vw;font-size:1.28vw;line-height:1;letter-spacing:.07em;font-weight:200}
 .social li{position:absolute;top:0}
 .social li:nth-child(1){left:0}
 .social li:nth-child(2){left:9.2vw}
 .social li:nth-child(3){left:18.4vw}
 .social li:nth-child(4){left:27.6vw}
-.copy{left:11.25vw;top:51.7vw;font-size:.9vw;line-height:1;letter-spacing:.08em;font-weight:200}
+.copy{left:11.25vw;top:51.78vw;font-size:.75vw;line-height:1;letter-spacing:.08em;font-weight:200}
 .contact a{position:static;transition:opacity .2s}
 .contact a:hover{opacity:.5}
 
@@ -84,9 +84,9 @@ figcaption{position:absolute;left:0;top:27.55vw;font-size:1.6vw;line-height:1;le
 .peek img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 
 /* key clients */
-.kc{left:5.6vw;top:5.5vw;font-size:2.5vw;line-height:1;letter-spacing:-.01em;font-weight:200}
-.kc-india{right:6.25vw;top:5.5vw;font-size:2.5vw;line-height:1;font-weight:200;display:flex;align-items:flex-end;gap:.15vw;letter-spacing:-.01em}
-.kc-india svg{position:static;width:2vw;height:1.8vw;margin-bottom:.1vw}
+.kc{left:5.6vw;top:5.72vw;font-size:2.05vw;line-height:1;letter-spacing:-.01em;font-weight:200}
+.kc-india{right:6.25vw;top:5.72vw;font-size:2.05vw;line-height:1;font-weight:200;display:flex;align-items:flex-end;gap:.15vw;letter-spacing:-.01em}
+.kc-india svg{position:static;width:1.65vw;height:1.5vw;margin-bottom:.1vw}
 .slots{inset:0}
 .slot{width:15vw;height:9vw;transform:translate(-50%,-50%)}
 .slot img{inset:0;margin:auto;filter:grayscale(1);will-change:filter,opacity,transform}
@@ -106,10 +106,10 @@ figcaption{position:absolute;left:0;top:27.55vw;font-size:1.6vw;line-height:1;le
 
   .s1{min-height:100svh;justify-content:flex-start;gap:14vw;padding-top:12vw}
   .s1 .logo{width:24vw}
-  .s1 h1{font-size:6.6vw;line-height:1.45;letter-spacing:.01em}
+  .s1 h1{font-size:5.4vw;line-height:1.45;letter-spacing:.01em}
 
-  .head,.talk{font-size:9vw;letter-spacing:.01em}
-  .body{font-size:5.4vw;line-height:1.7;letter-spacing:.03em}
+  .head,.talk{font-size:7.4vw;letter-spacing:.01em}
+  .body{font-size:4.5vw;line-height:1.7;letter-spacing:.03em}
   .svc li{padding:1.6vw 0}
   .svc li span{font-size:1em}
   .svc li span::after{height:1.5px}
@@ -120,22 +120,22 @@ figcaption{position:absolute;left:0;top:27.55vw;font-size:1.6vw;line-height:1;le
   .slide.light:has(.work){padding:12vw 6vw;gap:12vw}
   .work,.work.l,.work.r{position:relative;width:100%;height:auto;left:auto;top:auto}
   .thumb{position:relative}
-  figcaption{position:static;display:block;margin-top:3.5vw;font-size:4.6vw;letter-spacing:.04em}
+  figcaption{position:static;display:block;margin-top:3.5vw;font-size:3.9vw;letter-spacing:.04em}
 
   .clients{padding:14vw 5vw 16vw;gap:10vw;display:block}
   .clients .kc,.clients .kc-india{display:inline-flex}
-  .kc{font-size:5.8vw}
-  .kc-india{float:right;font-size:5.8vw;align-items:flex-end;gap:1vw}
-  .kc-india svg{width:5vw;height:4.5vw}
+  .kc{font-size:4.8vw}
+  .kc-india{float:right;font-size:4.8vw;align-items:flex-end;gap:1vw}
+  .kc-india svg{width:4.2vw;height:3.8vw}
   .slots{position:relative;clear:both;display:grid;grid-template-columns:repeat(3,1fr);gap:4vw 2vw;margin-top:12vw;inset:auto}
   .slot{position:relative!important;left:auto!important;top:auto!important;transform:none;width:auto;height:24vw}
 
   .contact{min-height:100svh;gap:9vw}
-  .talk{font-size:11vw}
-  .reach,.office{font-size:5.6vw;line-height:1.55;letter-spacing:.03em}
+  .talk{font-size:9vw}
+  .reach,.office{font-size:4.6vw;line-height:1.55;letter-spacing:.03em}
   .reach{letter-spacing:.05em;word-break:break-word}
   .office b{display:block;margin-bottom:1vw}
-  .social{display:flex;flex-wrap:wrap;gap:3vw 7vw;font-size:4.6vw;letter-spacing:.05em}
+  .social{display:flex;flex-wrap:wrap;gap:3vw 7vw;font-size:3.8vw;letter-spacing:.05em}
   .social li{position:static}
-  .copy{font-size:3.2vw;letter-spacing:.05em}
+  .copy{font-size:2.8vw;letter-spacing:.05em}
 }
