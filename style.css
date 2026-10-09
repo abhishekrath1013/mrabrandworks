@@ -18,11 +18,11 @@ address{font-style:normal}
 
 /* slide 1 */
 .s1 .logo{left:5.75vw;top:4.2vw;width:8.9vw}
-.s1 h1{left:6vw;top:20vw;font-size:3vw;line-height:5.6vw;letter-spacing:.03em;font-weight:200}
+.s1 h1{left:6vw;top:20.7vw;font-size:3vw;line-height:4.2vw;letter-spacing:.03em;font-weight:200}
 
 /* slides 2–4 */
 .head{left:7vw;top:16.3vw;font-size:3vw;line-height:1;letter-spacing:.025em;font-weight:200}
-.body{left:36.95vw;top:14.7vw;font-size:2.05vw;line-height:4.425vw;letter-spacing:.04em;font-weight:200}
+.body{left:36.95vw;top:15.31vw;font-size:2.05vw;line-height:3.2vw;letter-spacing:.04em;font-weight:200}
 
 /* slides 5–7 */
 .work{top:15.1vw;width:41.7vw;height:auto}
@@ -37,8 +37,8 @@ figcaption{position:absolute;left:0;top:27.7vw;font-size:1.3vw;line-height:1;let
 
 /* slide 8 */
 .talk{left:11.25vw;top:13.9vw;font-size:3vw;line-height:1;letter-spacing:.03em;font-weight:200}
-.reach{left:57.4vw;top:12.8vw;font-size:1.9vw;line-height:3.1vw;letter-spacing:.08em;font-weight:200}
-.office{font-size:1.9vw;line-height:3.1vw;letter-spacing:.045em;font-weight:200;top:24.05vw}
+.reach{left:57.4vw;top:13.08vw;font-size:1.9vw;line-height:2.55vw;letter-spacing:.08em;font-weight:200}
+.office{font-size:1.9vw;line-height:2.55vw;letter-spacing:.045em;font-weight:200;top:24.33vw}
 .office b{position:static;font-weight:300}
 .chennai{left:11.25vw}
 .mumbai{left:57.4vw}
@@ -106,10 +106,10 @@ figcaption{position:absolute;left:0;top:27.7vw;font-size:1.3vw;line-height:1;let
 
   .s1{min-height:100svh;justify-content:flex-start;gap:14vw;padding-top:12vw}
   .s1 .logo{width:24vw}
-  .s1 h1{font-size:5.4vw;line-height:1.45;letter-spacing:.01em}
+  .s1 h1{font-size:5.4vw;line-height:1.35;letter-spacing:.01em}
 
   .head,.talk{font-size:7.4vw;letter-spacing:.01em}
-  .body{font-size:4.5vw;line-height:1.7;letter-spacing:.03em}
+  .body{font-size:4.5vw;line-height:1.5;letter-spacing:.03em}
   .svc li{padding:1.6vw 0}
   .svc li span{font-size:1em}
   .svc li span::after{height:1.5px}
@@ -132,7 +132,7 @@ figcaption{position:absolute;left:0;top:27.7vw;font-size:1.3vw;line-height:1;let
 
   .contact{min-height:100svh;gap:9vw}
   .talk{font-size:9vw}
-  .reach,.office{font-size:4.6vw;line-height:1.55;letter-spacing:.03em}
+  .reach,.office{font-size:4.6vw;line-height:1.4;letter-spacing:.03em}
   .reach{letter-spacing:.05em;word-break:break-word}
   .office b{display:block;margin-bottom:1vw}
   .social{display:flex;flex-wrap:wrap;gap:3vw 7vw;font-size:3.8vw;letter-spacing:.05em}

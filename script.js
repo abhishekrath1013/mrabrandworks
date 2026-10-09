@@ -62,7 +62,7 @@ svc.querySelectorAll('li span').forEach(span => {
     const list = projects[i];
     if (!list) { peek.classList.remove('show'); gsap.to(peek, { opacity: 0, duration: .2 }); return; }
     peekImg.src = list[Math.floor(Math.random() * list.length)];
-    const rowY = 14.7 + i * 4.425;
+    const rowY = 15.31 + i * 3.2;
     const top = Math.min(42, Math.max(9, rowY - 4 + (Math.random() * 4 - 2)));
     const left = top > 23 && Math.random() < .5 ? 7.5 + Math.random() * 9 : 78 + Math.random() * 1.5;
     gsap.killTweensOf(peek);
