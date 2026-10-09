@@ -112,11 +112,6 @@ const CLIENTS = [{"src": "assets/clients/fortune-housing.png", "ar": 1.442}, {"s
     slots.push({ el, cur: idx, used: new Set([idx]), busy: false });
   }
 
-  const variants = [
-    { x: 0, y: 30 }, { x: 0, y: -30 }, { x: 40, y: 0 }, { x: -40, y: 0 },
-    { x: 0, y: 0, scale: .85 }, { x: 0, y: 0, scale: 1.15 }, { x: 0, y: 0, rotate: 6 }, { x: 0, y: 0, rotate: -6 }
-  ];
-
   function swap(slot) {
     if (slot.busy) return;
     // candidates: not on screen now, never shown in this slot before
@@ -128,14 +123,14 @@ const CLIENTS = [{"src": "assets/clients/fortune-housing.png", "ar": 1.442}, {"s
     const inn = makeImg(CLIENTS[next]);
     slot.el.appendChild(inn);
     slot.busy = true;
-    const v = variants[Math.floor(Math.random() * variants.length)];
+    const blur = 10 + Math.random() * 10;   // random blur strength; the logo itself never moves
     const d = 1.5;
     shown.delete(slot.cur); shown.add(next);
     const prev = slot.cur; slot.cur = next; slot.used.add(next);
     gsap.timeline({ onComplete: () => { old.remove(); slot.busy = false; } })
-      .to(old, { filter: 'grayscale(1) blur(16px)', opacity: 0, x: -v.x * .5, y: -v.y * .5, scale: v.scale ? 2 - v.scale : 1, rotate: -(v.rotate || 0) * .5, duration: d, ease: 'power2.inOut' }, 0)
-      .fromTo(inn, { filter: 'grayscale(1) blur(16px)', opacity: 0, x: v.x, y: v.y, scale: v.scale || 1, rotate: v.rotate || 0 },
-                   { filter: 'grayscale(1) blur(0px)', opacity: 1, x: 0, y: 0, scale: 1, rotate: 0, duration: d, ease: 'power2.inOut' }, d * .35);
+      .to(old, { filter: `grayscale(1) blur(${blur}px)`, opacity: 0, duration: d, ease: 'power2.inOut' }, 0)
+      .fromTo(inn, { filter: `grayscale(1) blur(${blur}px)`, opacity: 0 },
+                   { filter: 'grayscale(1) blur(0px)', opacity: 1, duration: d, ease: 'power2.inOut' }, d * .3);
   }
 
   if (!reduce) gsap.from(slots.map(s => s.el), {
