@@ -84,11 +84,11 @@ const CLIENTS = [{"src": "assets/clients/fortune-housing.png", "ar": 1.442}, {"s
 (() => {
   const wrap = document.getElementById('slots');
   const section = document.getElementById('clients');
-  const COLS = 5, ROWS = 3;
+  const COLS = 6, ROWS = 3;
   const mq = matchMedia('(max-width:820px)');
   // sizes are in vw; phones show 3 columns so the logos get scaled up
-  const dims = () => mq.matches ? { AREA: 190, MAXW: 25, MAXH: 18 } : { AREA: 52, MAXW: 13, MAXH: 8.4 };
-  const xs = [12.3, 31.5, 50.7, 69.9, 89.1], ys = [18.1, 30.3, 43.4];
+  const dims = () => mq.matches ? { AREA: 105, MAXW: 20, MAXH: 11 } : { AREA: 28, MAXW: 9.5, MAXH: 5.6 };
+  const xs = [12, 27.2, 42.4, 57.6, 72.8, 88], ys = [18.1, 30.3, 43.4];
   CLIENTS.forEach(c => { new Image().src = c.src; });
   const sizeOf = c => { const { AREA, MAXW, MAXH } = dims(); const h = Math.min(MAXH, Math.sqrt(AREA / c.ar)); return { w: Math.min(MAXW, h * c.ar), h }; };
   const makeImg = c => {
