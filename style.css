@@ -129,6 +129,7 @@ figcaption{position:absolute;left:0;top:27.7vw;font-size:1.3vw;line-height:1;let
   .kc-india svg{width:4.2vw;height:3.8vw}
   .slots{position:relative;clear:both;display:grid;grid-template-columns:repeat(3,1fr);gap:4vw 2vw;margin-top:12vw;inset:auto}
   .slot{position:relative!important;left:auto!important;top:auto!important;transform:none;width:auto;height:19vw}
+  .slot img{position:absolute;inset:0;margin:auto}
 
   .contact{min-height:100svh;gap:9vw}
   .talk{font-size:7.8vw}
