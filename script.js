@@ -3,8 +3,9 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // GSAP smooth scroll
+let smoother = null;
 if (!reduce) {
-  ScrollSmoother.create({ wrapper: '#smooth-wrapper', content: '#smooth-content', smooth: 1.4, effects: false });
+  smoother = ScrollSmoother.create({ wrapper: '#smooth-wrapper', content: '#smooth-content', smooth: 1.4, effects: false });
 }
 
 // split multi-line text into masked lines
@@ -185,3 +186,48 @@ document.querySelectorAll('.thumb').forEach(b => b.addEventListener('click', () 
 }));
 lb.addEventListener('click', () => { lb.hidden = true; });
 addEventListener('keydown', e => { if (e.key === 'Escape') lb.hidden = true; });
+
+// hamburger menu
+(() => {
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('menu');
+  const panel = menu.querySelector('.menu-panel');
+  const shade = menu.querySelector('.menu-shade');
+  const links = menu.querySelectorAll('.menu-links a span');
+  const extras = menu.querySelectorAll('.menu-social li, .menu-copy');
+  gsap.set(links, { yPercent: 110 });
+  gsap.set(extras, { opacity: 0 });
+
+  const tl = gsap.timeline({ paused: true, defaults: { ease: 'power4.inOut' },
+    onStart: () => menu.classList.add('open'),
+    onReverseComplete: () => menu.classList.remove('open') });
+  tl.to(shade, { opacity: 1, duration: .6, ease: 'power2.out' }, 0)
+    .to(panel, { x: 0, xPercent: 0, duration: .9 }, 0)
+    .to(links, { yPercent: 0, duration: 1, stagger: .07, ease: 'power4.out' }, .35)
+    .to(extras, { opacity: 1, duration: .6, stagger: .06, ease: 'power2.out' }, .8);
+  gsap.set(panel, { xPercent: 100 });
+
+  let isOpen = false;
+  const set = open => {
+    isOpen = open;
+    burger.setAttribute('aria-expanded', open);
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    menu.setAttribute('aria-hidden', !open);
+    if (smoother) smoother.paused(open);
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+    open ? tl.timeScale(1).play() : tl.timeScale(1.4).reverse();
+  };
+  burger.addEventListener('click', () => set(!isOpen));
+  shade.addEventListener('click', () => set(false));
+  addEventListener('keydown', e => { if (e.key === 'Escape' && isOpen) set(false); });
+
+  menu.querySelectorAll('.menu-links a').forEach(a => a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    set(false);
+    setTimeout(() => {
+      if (smoother) smoother.scrollTo(target, true, 'top top');
+      else target.scrollIntoView({ behavior: 'smooth' });
+    }, 450);
+  }));
+})();

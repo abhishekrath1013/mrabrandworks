@@ -61,6 +61,36 @@ figcaption{position:absolute;left:0;top:27.7vw;font-size:1.3vw;line-height:1;let
 @keyframes spin{to{transform:rotate(360deg)}}
 @media (hover:none){.cursor{display:none}}
 
+/* hamburger menu */
+.burger{position:fixed;top:2.6vw;right:5.4vw;z-index:70;width:44px;height:44px;border:0;background:none;color:#fff;mix-blend-mode:difference}
+.burger span{position:absolute;left:8px;right:8px;height:1.5px;background:currentColor;transition:transform .5s cubic-bezier(.7,0,.2,1),top .5s cubic-bezier(.7,0,.2,1)}
+.burger span:nth-child(1){top:17px}
+.burger span:nth-child(2){top:26px}
+.burger[aria-expanded="true"] span:nth-child(1){top:21.5px;transform:rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){top:21.5px;transform:rotate(-45deg)}
+.menu{position:fixed;inset:0;z-index:60;visibility:hidden;color:#fff}
+.menu.open{visibility:visible}
+.menu-shade{position:absolute;inset:0;background:rgba(0,0,0,.6);opacity:0}
+.menu-panel{position:absolute;top:0;right:0;bottom:0;left:25%;background:#000;padding:max(90px,14vh) 5.4vw 0 4.5vw;transform:translateX(100%);display:flex;flex-direction:column}
+.menu-links a{display:block;font-size:min(4vw,7.4vh);line-height:1.02;letter-spacing:.005em;font-weight:200;padding:.1em 0;transition:opacity .3s}
+.menu-links li{overflow:hidden}
+.menu-links:hover a{opacity:.35}
+.menu-links a:hover{opacity:1}
+.menu-links a span{display:block}
+.menu-social{margin-top:min(5vw,6vh)}
+.menu-social a{display:inline-block;font-size:clamp(12px,min(1vw,1.9vh),16px);line-height:2.2;letter-spacing:.02em;font-weight:200;color:#ccc;transition:color .2s}
+.menu-social a:hover{color:#fff}
+.menu-social li{display:block}
+.menu-copy{margin-top:auto;padding-bottom:max(20px,3.5vh);font-size:clamp(11px,min(.9vw,1.7vh),14px);font-weight:200;letter-spacing:.02em;color:#ccc}
+@media (max-width:820px){
+  .burger{top:5vw;right:4vw}
+  .menu-panel{left:0;padding:26vw 8vw 0}
+  .menu-links a{font-size:min(11vw,8vh);line-height:1.05;padding:1vw 0}
+  .menu-social{margin-top:12vw}
+  .menu-social a{font-size:4.2vw;line-height:2.1}
+  .menu-copy{font-size:3vw;padding-bottom:7vw}
+}
+
 /* lightbox */
 .lightbox{position:fixed;inset:0;z-index:50;background:#000e;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:5vw;cursor:zoom-out;color:#fff}
 .lightbox[hidden]{display:none}
