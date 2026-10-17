@@ -63,9 +63,9 @@ svc.querySelectorAll('li span').forEach(span => {
     const list = projects[i];
     if (!list) { peek.classList.remove('show'); gsap.to(peek, { opacity: 0, duration: .2 }); return; }
     peekImg.src = list[Math.floor(Math.random() * list.length)];
-    const rowY = 15.31 + i * 3.2;
-    const top = Math.min(42, Math.max(9, rowY - 4 + (Math.random() * 4 - 2)));
-    const left = top > 23 && Math.random() < .5 ? 7.5 + Math.random() * 9 : 78 + Math.random() * 1.5;
+    const rowY = 8.31 + i * 3.2;
+    const top = Math.min(34, Math.max(3, rowY - 4 + (Math.random() * 4 - 2)));
+    const left = top > 16 && Math.random() < .5 ? 7.5 + Math.random() * 9 : 78 + Math.random() * 1.5;
     gsap.killTweensOf(peek);
     peek.classList.toggle('show', small.matches);
     gsap.set(peek, small.matches ? { opacity: 1, clipPath: 'inset(0 0 100% 0)' } : { left: vw(left), top: vw(top), opacity: 1, clipPath: 'inset(0 0 100% 0)' });
@@ -89,7 +89,7 @@ const CLIENTS = [{"src": "assets/clients/fortune-housing.png", "ar": 1.442}, {"s
   const mq = matchMedia('(max-width:820px)');
   // sizes are in vw; phones show 3 columns so the logos get scaled up
   const dims = () => mq.matches ? { AREA: 105, MAXW: 20, MAXH: 11 } : { AREA: 28, MAXW: 9.5, MAXH: 5.6 };
-  const xs = [12, 27.2, 42.4, 57.6, 72.8, 88], ys = [18.1, 30.3, 43.4];
+  const xs = [12, 27.2, 42.4, 57.6, 72.8, 88], ys = [14.5, 26, 37.5];
   CLIENTS.forEach(c => { new Image().src = c.src; });
   const sizeOf = c => { const { AREA, MAXW, MAXH } = dims(); const h = Math.min(MAXH, Math.sqrt(AREA / c.ar)); return { w: Math.min(MAXW, h * c.ar), h }; };
   const makeImg = c => {
